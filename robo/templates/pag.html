@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Últimos Dados</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Altere 'Arial' para a fonte que você deseja usar */
+            background-color: #e6e6fa; /* Cor roxa claro pastel */
+            background-image: url('image/optimus.jpg'); /* Caminho para sua imagem de fundo */
+            background-size: cover; /* Ajusta a imagem de fundo para cobrir todo o elemento */
+            background-repeat: no-repeat; /* Evita a repetição da imagem */
+            color: #333; /* Cor do texto */
+            margin: 0; /* Remove as margens padrão do body */
+            min-height: 100vh; /* Define a altura mínima do body como a altura da janela de visualização */
+            display: flex; /* Usa flexbox para distribuir os elementos verticalmente */
+            flex-direction: column; /* Alinha os elementos em uma coluna */
+        }
+        .container {
+            flex: 1; /* Faz com que a div .container preencha o espaço disponível */
+            text-align: center; /* Centraliza o conteúdo na tela */
+            margin-top: 50px; /* Espaçamento superior */
+            margin-bottom: 20px; /* Espaçamento inferior */
+        }
+        h1 {
+            font-family: 'Verdana', sans-serif; /* Escolha uma fonte bonita para o título */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column; /* Define a direção dos itens como vertical */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            justify-content: center; /* Centraliza os itens verticalmente */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra colorida */
+            background-color: #ffffff; /* Cor de fundo da caixa */
+        }
+        .icon {
+            font-size: 24px;
+            margin-bottom: 10px; /* Espaçamento entre o ícone e o texto */
+        }
+        .green { color: green; }
+        .red { color: red; }
+        .orange { color: orange; }
+        .quote {
+            font-family: 'cursive'; /* Fonte de escrita à mão */
+            font-size: 18px; /* Tamanho da fonte */
+            padding: 20px; /* Espaçamento interno */
+            margin-bottom: 30px; /* Espaçamento inferior */
+        }
+        footer {
+            background-color: #333; /* Cor de fundo do rodapé */
+            color: #fff; /* Cor do texto do rodapé */
+            padding: 10px; /* Espaçamento interno do rodapé */
+            text-align: center; /* Centraliza o texto do rodapé */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Últimos Dados</h1>
+        <div class="subtitle">Horário da última requisição: {{ last_request_time }}</div>
+        {% for item in data %}
+        <div class="box">
+            <div>
+                Sensor
+                {% if item.sensor %}
+                <i class="icon green">✔</i>
+                {% else %}
+                <i class="icon red">✘</i>
+                {% endif %}
+            </div>
+            <div>
+                Botão
+                {% if item.botao %}
+                <i class="icon green">✔</i>
+                {% else %}
+                <i class="icon red">✘</i>
+                {% endif %}
+            </div>
+            <div>
+                Liga Robô
+                {% if item.liga_robo %}
+                <i class="icon green">✔</i>
+                {% else %}
+                <i class="icon red">✘</i>
+                {% endif %}
+            </div>
+            <div>
+                Reset Contador
+                {% if item.reset_contador %}
+                <i class="icon green">✔</i>
+                {% else %}
+                <i class="icon red">✘</i>
+                {% endif %}
+            </div>
+            <div>
+                Valor Contagem
+                <i class="icon orange">{{ item.valor_contagem }}</i>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="quote">
+            Sem o Allspark não podemos levar a vida de volta ao nosso planeta. Então o destino trouxe sua recompensa. Um novo mundo para chamarmos de casa. Vivemos entre os humanos agora, sempre escondidos, mas vigiando eles em segredo. Esperando, protegendo. Eu testemunhei a capacidade e a coragem deles. E embora sejamos de mundos distintos, como nós eles são mais do que os olhos podem ver. Eu sou Optimus Prime. E mando esta mensagem para qualquer Autobot sobrevivente que esteja refugiando entre as estrelas. Nós estamos aqui. Nós estamos esperando.
+        </div>
+    </div>
+    <footer>Todos os direitos reservados a Vinícius de Morais Lino</footer>
+</body>
+</html>

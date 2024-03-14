@@ -1,0 +1,21 @@
+# Arquivos de banco de dados
+*.sqlite3
+*.db
+
+# Arquivos de configuração
+*.pyc
+__pycache__/
+*.pyo
+*.swp
+*.bak
+*.orig
+
+# Arquivos gerados
+.DS_Store
+node_modules/
+/static/
+/media/
+
+
+./.venv
+.venv
